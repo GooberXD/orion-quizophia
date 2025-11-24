@@ -7,14 +7,21 @@ Program Features:
 2.	**Navigation System**: Students can move forward or backward between the questions and access marked questions through dedicated navigation buttons. 
 3.	**Role-based System**
 >a.	Teachers can create and manage quizzes, view student scores and rankings, control score visibility, and mark questions for review.
+
 >b.	Students can attempt quizzes, view their scores and rankings, track their progress, and mark questions for review.
 4.	**Exception Handling**: The program includes custom exception handling for:
 >a.	User input errors
+
 >b.	Score calculation and ranking errors
+
 >c.	File handling errors
+
 >d.	Student answering errors
+
 >e.	Authorization errors
+
 >f.	Quiz logic errors
+
 5.	**File Management**: The program stores student data, quiz questions, scores and rankings. It also includes reading and writing operations with appropriate error handling.
 6.	**Design**: The user interface uses a simple and clear layout, influenced by educational platforms.
 
