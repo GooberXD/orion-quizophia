@@ -27,7 +27,7 @@ public class FileHandler {
     // 1. USER HANDLING (Teachers & Students)
     // ==========================================
 
-    public void saveUser(Person p) {
+    public void saveUser(User p) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(USER_FILE, true))) {
             String type = (p instanceof Teacher) ? "TEACHER" : "STUDENT";
             String line = type + "|" + p.getId() + "|" + p.getName();
@@ -38,8 +38,8 @@ public class FileHandler {
         }
     }
 
-    public List<Person> loadUsers() {
-        List<Person> people = new ArrayList<>();
+    public List<User> loadUsers() {
+        List<User> people = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(USER_FILE))) {
             String line;
             while ((line = reader.readLine()) != null) {
