@@ -3,7 +3,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Student extends Person {
+// edited the class from Person to User, Ligaray, 11272025
+
+public class Student extends User {
     private List<StudentScore> scores;
     private Map<String, Integer> subjectScores;
 
