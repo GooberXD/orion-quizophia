@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 // edited this from Person to User class, Ligaray, 11272025
 
@@ -10,7 +8,7 @@ public class Teacher extends User {
     private String questionBankPath;
 
     public Teacher(String id, String name) {
-        super(id, name);
+        super(id, name, "Teacher"); // edited, Ligaray, 11282025
         this.subjects = new ArrayList<>();
     }
 

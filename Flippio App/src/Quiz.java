@@ -25,8 +25,15 @@ public class Quiz {
                 throw new EmptyAnswerException("You cannot submit an empty answer!");
             }
 
-            if (q.checkAnswer(ans)) {
-                score++;
+            int answerIndex; // edited, Ligaray, 11282025
+            try{
+                answerIndex = Integer.parseInt(ans) - 1;
+            }catch(NumberFormatException e){
+                throw new NumberFormatException("Invalid input");
+            }
+
+            if (q.checkAnswer(answerIndex)) {
+                score++; // edited, Ligaray, 11282025
             }
         }
 

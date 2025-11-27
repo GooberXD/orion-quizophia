@@ -8,7 +8,7 @@ public class Main {
 
         // 1. Load Data on Startup
         System.out.println("Loading system data...");
-        List<Person> users = fileHandler.loadUsers();
+        List<User> users = fileHandler.loadUsers(); // edited, Ligaray, 11282025
         List<Subject> subjects = fileHandler.loadSubjects();
 
         // Temporary: If no users exist, create a default Teacher
@@ -33,8 +33,8 @@ public class Main {
 
             Subject math = new Subject("Math");
             String[] choices = {"4", "5", "2", "10"};
-            Question q1 = new MultipleChoiceQuestion("2+2=?", "4", choices);
-
+//            Question q1 = new MultipleChoiceQuestion("2+2=?", "4", choices);
+            Question q1 = new MultipleChoiceQuestion("2+2=?", 0, choices); // edited, Ligaray, 11282025
             math.addQuestion(q1);
             currentTeacher.addSubject(math);
 

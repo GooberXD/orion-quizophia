@@ -127,10 +127,11 @@ public class Quizophia extends JFrame {
 
             // Determine actual string of correct answer based on selection
             int selectedIndex = cmbCorrect.getSelectedIndex(); // 0 to 3
-            String actualAnswer = choices[selectedIndex];
+//            String actualAnswer = choices[selectedIndex]; // edited, Ligaray, 11282025
 
             MultipleChoiceQuestion q = new MultipleChoiceQuestion(
-                    txtQuestion.getText(), actualAnswer, choices
+//                    txtQuestion.getText(), actualAnswer, choices
+                    txtQuestion.getText(), selectedIndex, choices // edited, Ligaray, 11282025
             );
 
             Subject sub = new Subject(txtSubject.getText());

@@ -1,8 +1,8 @@
 public class MultipleChoiceQuestion extends Question {
     private final String[] choices;
 
-    public MultipleChoiceQuestion(String text, String answer, String[] choices) {
-        super(text, answer);
+    public MultipleChoiceQuestion(String text, int answer, String[] choices) {
+        super(text, answer); // edited, Ligaray, 11282025
         this.choices = choices;
     }
 

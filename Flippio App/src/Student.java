@@ -10,7 +10,7 @@ public class Student extends User {
     private Map<String, Integer> subjectScores;
 
     public Student(String id, String name) {
-        super(id, name);
+        super(id, name, "Student"); // edited, Ligaray, 11282025
         this.scores = new ArrayList<>();
         this.subjectScores = new HashMap<>();
     }
