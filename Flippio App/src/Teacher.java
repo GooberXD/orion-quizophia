@@ -3,7 +3,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Teacher extends Person {
+// edited this from Person to User class, Ligaray, 11272025
+
+public class Teacher extends User {
     private List<Subject> subjects;
     private String questionBankPath;
 
