@@ -349,7 +349,7 @@ public class QuizTakingView extends JFrame {
 
 
 //THIS IS AN ALT DESIGN IM WORKING ON, WILL REVISIT
-package View;
+// package View;
 //
 //import javax.swing.*;
 //import javax.swing.border.EmptyBorder;
@@ -747,3 +747,4 @@ package View;
 //        }
 //    }
 //}
+
