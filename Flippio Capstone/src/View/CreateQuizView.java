@@ -24,6 +24,7 @@ public class CreateQuizView extends JFrame {
         setSize(600, 700);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
+        setLocationRelativeTo(null);
 
         // 1. TOP: Quiz Details
         JPanel topPanel = new JPanel(new BorderLayout());
@@ -111,3 +112,4 @@ public class CreateQuizView extends JFrame {
     public void addSaveQuizListener(ActionListener l) { saveQuizBtn.addActionListener(l); }
     public void addCancelListener(ActionListener l) { cancelBtn.addActionListener(l); }
 }
+
