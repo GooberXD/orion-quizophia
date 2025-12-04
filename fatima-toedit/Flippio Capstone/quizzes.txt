@@ -1,0 +1,40 @@
+QUIZ|Minecraft
+Q|Who is the Overlord of the End?|Pillager|Wither|End Dragon|Herobrine|2
+END_QUIZ
+QUIZ|Minecraft
+Q|Who is the boss of the End?|Endermite|Shruckles|End Dragon|Ender Man|2
+END_QUIZ
+QUIZ|Science
+Q|What is the smallest unit of Life?|Atom|Cell|Bacteria|Nucleus|1
+Q|What is the center of an Atom?|Nucleus|Nuclei|Neutron|Electron|0
+END_QUIZ
+QUIZ|Math
+Q|1 + 1 = ?|0|1|2|3|2
+END_QUIZ
+QUIZ|Pokemon
+Q|What color is Pikachu?|Yellow|Green|Blue|Red|0
+END_QUIZ
+QUIZ|Nothing
+Q|okay|1|2|3|4|0
+END_QUIZ
+QUIZ|Star
+Q|asdas|1|2|3|4|0
+END_QUIZ
+QUIZ|English
+Q|adad|1|2|3|4|0
+END_QUIZ
+QUIZ|Fundamentals of OOP
+Q|Which of the following best describes an Object in Object-Oriented Programming?|A set of rules that governs how data is accessed.|An instance of a class, representing a real-world entity with state and behavior.|A specialized class that can only inherit from one other class.|A blueprint for creating other objects.|1
+END_QUIZ
+QUIZ|Fundamentals of OOP 2
+Q|Which of the following best describes an Object in Object-Oriented Programming?|A set of rules that governs how data is accessed.|An instance of a class, representing a real-world entity with state and behavior.|A specialized class that can only inherit from one other class.|A blueprint for creating other objects.|1
+Q|The concept of Encapsulation primarily focuses on:|The ability of an object to take many forms.|Allowing a class to acquire the properties and behavior of another class.|Hiding the complex implementation details and showing only the essential features of an object.|Bundling data (attributes) and the methods (behaviors) that operate on the data into a single unit (class) and restricting direct access to the data.|3
+Q|Which OOP principle allows a subclass to inherit attributes and methods from a superclass?|Encapsulation|Abstraction|Polymorphism|Inheritance|3
+Q|What is the primary benefit of Abstraction in OOP?|To ensure that private data members cannot be modified at all.|To allow the use of the same method name for different implementations in different classes.|To hide complex implementation details from the user, showing only necessary information.|To guarantee that all methods are executed in a specific sequence.|2
+Q|The OOP principle of Polymorphism is best demonstrated by:|Using a base class reference to refer to a derived class object.|Creating a class that contains both data and methods.|Restricting access to some of the class's data members.|Defining two methods in the same class with the same name but different parameters.|3
+Q|In the context of OOP, what is a Constructor?|A variable that holds the shared data for all objects of a class|A method that is automatically called when a new object of a class is created.|An attribute of a class that determines its data type.|A special type of method used to destroy an object when it is no longer needed.|1
+Q|What is the key difference between Aggregation and Composition in the context of object relationships (Association)?|Aggregation allows inheritance, while Composition does not.|Aggregation is a 'has-a' relationship where the contained object can exist independently, while Composition is a 'part-of' relationship where the contained object cannot exist independently of the container.|Aggregation is a one-to-one relationship, and Composition is a one-to-many relationship.|Composition is only used for data structures, and Aggregation is only used for business logic.|1
+Q|Which access modifier in most OOP languages (like Java/C$#$) grants access to the member only within the class itself?|public|private|protected|default (package-private)|1
+Q|What is Method Overriding?|Calling a method from inside another method of the same class.|Creating an abstract method in a base class that has no implementation.|Defining two methods with the same name but different parameters in the same class.|Defining a method in the subclass with the exact same signature (name and parameters) as a method in its superclass.|3
+Q|The fundamental concept that allows treating objects of different classes in a uniform way, provided they share a common superclass or interface, is:|Polymorphism|Cohesion|Encapsulation|Coupling|0
+END_QUIZ
