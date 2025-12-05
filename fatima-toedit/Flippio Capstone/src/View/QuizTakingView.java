@@ -18,8 +18,8 @@ public class QuizTakingView extends JFrame {
 
     // Specific Option Colors (Pastel tones)
     private final Color[] OPTION_COLORS = {
-            new Color(163, 171, 249), // Option 1 (Purple-ish)
-            new Color(163, 171, 249), // Option 2
+            new Color(253, 186, 116), // Option 1 (Orange-ish)
+            new Color(163, 171, 249), // Option 2 (Purple-ish)
             new Color(114, 245, 166), // Option 3 (Green-ish)
             new Color(255, 128, 128)  // Option 4 (Red-ish)
     };
@@ -66,7 +66,7 @@ public class QuizTakingView extends JFrame {
         topPanel.setBackground(COLOR_BG_OUTER);
         topPanel.setBorder(new EmptyBorder(15, 20, 15, 20));
 
-        JPanel circlesContainer = new JPanel(new GridLayout(2, 5, 8, 8));
+        JPanel circlesContainer = new JPanel(new GridLayout(1, 10, 8, 8));
         circlesContainer.setBackground(COLOR_BG_OUTER);
 
         // Initialize 10 circles (max capacity)
