@@ -18,10 +18,10 @@ public class QuizTakingView extends JFrame {
 
     // Specific Option Colors (Pastel tones)
     private final Color[] OPTION_COLORS = {
-            new Color(253, 186, 116), // Option 1 (Orange-ish)
-            new Color(163, 171, 249), // Option 2 (Purple-ish)
-            new Color(114, 245, 166), // Option 3 (Green-ish)
-            new Color(255, 128, 128)  // Option 4 (Red-ish)
+            new Color(206, 199, 225),
+            new Color(206, 199, 225),
+            new Color(206, 199, 225),
+            new Color(206, 199, 225)
     };
 
     // State Colors
@@ -30,6 +30,9 @@ public class QuizTakingView extends JFrame {
     private final Color COLOR_DISABLED = new Color(220, 220, 220);
     private final Color COLOR_NAV_BG = new Color(200, 180, 240);
     private final Color COLOR_FINISH_BG = new Color(45, 35, 85);
+
+    // Selected Border Color (Deep Purple RGB 59, 37, 98)
+    private final Color COLOR_BORDER_SELECTED = new Color(59, 37, 98);
 
     // Circle Navigation Colors
     private final Color COLOR_CIRCLE_DEFAULT = new Color(235, 207, 178); // Beige
@@ -46,9 +49,12 @@ public class QuizTakingView extends JFrame {
     private int selectedOptionIndex = -1;
 
     public QuizTakingView() {
-        // Window Setup
+        // Window Setup - FULL WINDOW MODE
         setTitle("Flippio - Quiz");
-        setSize(1100, 650);
+        // Set a minimum size to prevent it from being too squished
+        setMinimumSize(new Dimension(1200, 800));
+        // Start Maximized
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
@@ -64,9 +70,10 @@ public class QuizTakingView extends JFrame {
         // =================================================================
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.setBackground(COLOR_BG_OUTER);
-        topPanel.setBorder(new EmptyBorder(15, 20, 15, 20));
+        // Added slightly more padding for the larger header
+        topPanel.setBorder(new EmptyBorder(20, 40, 20, 40));
 
-        JPanel circlesContainer = new JPanel(new GridLayout(1, 10, 8, 8));
+        JPanel circlesContainer = new JPanel(new GridLayout(1, 10, 10, 10)); // Slightly larger gap
         circlesContainer.setBackground(COLOR_BG_OUTER);
 
         // Initialize 10 circles (max capacity)
@@ -78,10 +85,10 @@ public class QuizTakingView extends JFrame {
             circlesContainer.add(questionCircles[i]);
         }
 
-        btnSubmit = createCustomButton("Finish Attempt", COLOR_FINISH_BG, Color.WHITE, 160, 45, 20);
+        btnSubmit = createCustomButton("Finish Attempt", COLOR_FINISH_BG, Color.WHITE, 180, 50, 25);
 
         // Right side wrapper
-        JPanel rightGroupPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 30, 0));
+        JPanel rightGroupPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 40, 0));
         rightGroupPanel.setBackground(COLOR_BG_OUTER);
         rightGroupPanel.add(circlesContainer);
         rightGroupPanel.add(btnSubmit);
@@ -90,26 +97,37 @@ public class QuizTakingView extends JFrame {
         add(topPanel, BorderLayout.NORTH);
 
         // =================================================================
-        // 2. CENTER: Floating Question Card
+        // 2. CENTER: Floating Question Card (Responsive)
         // =================================================================
         JPanel outerCenterPanel = new JPanel(new GridBagLayout());
         outerCenterPanel.setBackground(COLOR_BG_OUTER);
 
-        RoundedPanel cardPanel = new RoundedPanel(30, COLOR_BG_CARD);
-        cardPanel.setLayout(new BorderLayout());
-        cardPanel.setPreferredSize(new Dimension(1000, 450));
-        cardPanel.setBorder(new EmptyBorder(30, 40, 30, 40));
+        // GridBagConstraints to make the card fill screen space while keeping margins
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH; // Expand in both directions
+        // Margins: Top: 20, Left: 100, Bottom: 60, Right: 100 (Centers it nicely on wide screens)
+        gbc.insets = new Insets(20, 100, 60, 100);
 
-        // Question Text
+        RoundedPanel cardPanel = new RoundedPanel(40, COLOR_BG_CARD); // Increased corner radius
+        cardPanel.setLayout(new BorderLayout());
+        // No fixed preferred size here, GBC handles the scaling
+        cardPanel.setBorder(new EmptyBorder(50, 60, 50, 60)); // Inner padding of the dark card
+
+        // -- Question Text --
+        // Increased font size for full screen readability
         questionLabel = new JLabel("Loading Question...", SwingConstants.CENTER);
-        questionLabel.setFont(FontUtil.montserrat(22f, Font.PLAIN, new Font("SansSerif", Font.PLAIN, 22)));
+        questionLabel.setFont(FontUtil.montserrat(32f, Font.BOLD, new Font("SansSerif", Font.BOLD, 32)));
         questionLabel.setForeground(COLOR_TEXT_WHITE);
         cardPanel.add(questionLabel, BorderLayout.NORTH);
 
-        // Options Grid
-        JPanel optionsPanel = new JPanel(new GridLayout(1, 4, 20, 0));
+        // -- Options Grid --
+        JPanel optionsPanel = new JPanel(new GridLayout(1, 4, 30, 0)); // Increased gap to 30
         optionsPanel.setOpaque(false);
-        optionsPanel.setBorder(new EmptyBorder(40, 0, 40, 0));
+        optionsPanel.setBorder(new EmptyBorder(60, 0, 60, 0)); // More vertical breathing room
 
         optionButtons = new JButton[4];
         for (int i = 0; i < 4; i++) {
@@ -118,17 +136,18 @@ public class QuizTakingView extends JFrame {
         }
         cardPanel.add(optionsPanel, BorderLayout.CENTER);
 
-        // Navigation Buttons (Prev/Next)
-        JPanel navPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 60, 10));
+        // -- Navigation Buttons (Prev/Next) --
+        JPanel navPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 80, 10)); // Increased gap
         navPanel.setOpaque(false);
-        btnPrev = createCustomButton("Prev", COLOR_NAV_BG, Color.BLACK, 200, 50, 20);
-        btnNext = createCustomButton("Next", COLOR_NAV_BG, Color.BLACK, 200, 50, 20);
+        // Made nav buttons slightly larger
+        btnPrev = createCustomButton("Prev", COLOR_NAV_BG, Color.BLACK, 220, 60, 30);
+        btnNext = createCustomButton("Next", COLOR_NAV_BG, Color.BLACK, 220, 60, 30);
 
         navPanel.add(btnPrev);
         navPanel.add(btnNext);
         cardPanel.add(navPanel, BorderLayout.SOUTH);
 
-        outerCenterPanel.add(cardPanel);
+        outerCenterPanel.add(cardPanel, gbc);
         add(outerCenterPanel, BorderLayout.CENTER);
     }
 
@@ -136,15 +155,9 @@ public class QuizTakingView extends JFrame {
     // LOGIC & SETUP METHODS (Called by Controller)
     // =================================================================
 
-    /**
-     * Configures the top-right circles based on how many questions the quiz actually has.
-     * E.g., if quiz has 5 questions, circles 6-10 are disabled.
-     */
     public void setupQuestionNavigator(int totalQuestions) {
         for (int i = 0; i < 10; i++) {
-            // Text is always "1", "2", etc.
             questionCircles[i].setText(String.valueOf(i + 1));
-
             if (i < totalQuestions) {
                 questionCircles[i].setEnabled(true);
                 questionCircles[i].setBackground(COLOR_CIRCLE_DEFAULT);
@@ -162,19 +175,16 @@ public class QuizTakingView extends JFrame {
     }
 
     public void setQuestionText(String text) {
-        // Use HTML to wrap text if it's too long
-        questionLabel.setText("<html><div style='text-align: center; width: 600px;'>" + text + "</div></html>");
+        // Adjust HTML wrap width for larger screen (800px)
+        questionLabel.setText("<html><div style='text-align: center; width: 800px;'>" + text + "</div></html>");
     }
 
     public void setOptions(String[] choices) {
-        // Reset selection when loading new options
         selectedOptionIndex = -1;
-
         for (int i = 0; i < optionButtons.length; i++) {
             if (i < choices.length) {
                 optionButtons[i].setText(choices[i]);
                 optionButtons[i].setVisible(true);
-                // Reset color
                 if (i < OPTION_COLORS.length) {
                     optionButtons[i].setBackground(OPTION_COLORS[i]);
                 }
@@ -191,29 +201,20 @@ public class QuizTakingView extends JFrame {
 
     public void setSelectedOption(int index) {
         this.selectedOptionIndex = index;
-
-        // Reset colors first
         for (int i = 0; i < optionButtons.length; i++) {
             if (i < OPTION_COLORS.length) {
                 optionButtons[i].setBackground(OPTION_COLORS[i]);
             }
         }
-        // Force repaint to show the white border selection effect
         for (JButton btn : optionButtons) {
             btn.repaint();
         }
     }
 
-    /**
-     * Updates the color of the navigation circles based on status.
-     * @param questionIndex The index of the question (0-9)
-     * @param status 0 = Unanswered, 1 = Answered (Green)
-     */
     public void setQuestionStatus(int questionIndex, int status) {
         if (questionIndex >= 0 && questionIndex < 10) {
             Color c = COLOR_CIRCLE_DEFAULT;
-            if (status == 1) c = COLOR_CIRCLE_GREEN; // Answered
-
+            if (status == 1) c = COLOR_CIRCLE_GREEN;
             if (questionCircles[questionIndex].isEnabled()) {
                 questionCircles[questionIndex].setBackground(c);
             }
@@ -232,9 +233,9 @@ public class QuizTakingView extends JFrame {
     private JButton createOptionButton(String text, int index) {
         Color btnColor = (index < OPTION_COLORS.length) ? OPTION_COLORS[index] : OPTION_COLORS[0];
         CustomHoverButton btn = new CustomHoverButton(text, btnColor, Color.BLACK, 20);
-        btn.setButtonIndex(index); // Link button to its index for selection logic
-        btn.setFont(FontUtil.montserrat(18f, Font.PLAIN, new Font("SansSerif", Font.PLAIN, 18)));
-        // Self-contained listener for selection visual
+        btn.setButtonIndex(index);
+        // Increased font size for options (20f)
+        btn.setFont(FontUtil.montserrat(20f, Font.PLAIN, new Font("SansSerif", Font.PLAIN, 20)));
         btn.addActionListener(e -> setSelectedOption(index));
         return btn;
     }
@@ -242,15 +243,14 @@ public class QuizTakingView extends JFrame {
     private JButton createCustomButton(String text, Color bg, Color fg, int width, int height, int radius) {
         JButton btn = new CustomHoverButton(text, bg, fg, radius);
         btn.setPreferredSize(new Dimension(width, height));
-        btn.setFont(FontUtil.montserrat(14f, Font.PLAIN, new Font("SansSerif", Font.PLAIN, 14)));
+        btn.setFont(FontUtil.montserrat(16f, Font.BOLD, new Font("SansSerif", Font.BOLD, 16)));
         return btn;
     }
 
     private JButton createCircleButton(String text) {
-        JButton btn = new CustomHoverButton(text, COLOR_CIRCLE_DEFAULT, Color.BLACK, 30);
-        btn.setPreferredSize(new Dimension(35, 35));
-        btn.setFont(FontUtil.montserrat(11f, Font.BOLD, new Font("SansSerif", Font.BOLD, 11)));
-        // Fix for text truncation on small buttons
+        JButton btn = new CustomHoverButton(text, COLOR_CIRCLE_DEFAULT, Color.BLACK, 40); // Slightly larger radius
+        btn.setPreferredSize(new Dimension(45, 45)); // Larger circles for full screen
+        btn.setFont(FontUtil.montserrat(14f, Font.BOLD, new Font("SansSerif", Font.BOLD, 14)));
         btn.setMargin(new Insets(0, 0, 0, 0));
         return btn;
     }
@@ -264,7 +264,7 @@ public class QuizTakingView extends JFrame {
         private Color foregroundColor;
         private int radius;
         private boolean isHovered = false;
-        private int buttonIndex = -1; // -1 means it's not an option button
+        private int buttonIndex = -1;
 
         public CustomHoverButton(String text, Color bg, Color fg, int radius) {
             super(text);
@@ -322,16 +322,16 @@ public class QuizTakingView extends JFrame {
             g2.setColor(paintColor);
             g2.fillRoundRect(0, 0, getWidth(), getHeight(), radius, radius);
 
-            // Draw White Border if this is the Selected Option
+            // Draw Custom Border (RGB 59, 37, 98) if this is the Selected Option
             if (isEnabled() && buttonIndex != -1 && buttonIndex == selectedOptionIndex) {
-                g2.setColor(Color.WHITE);
-                g2.setStroke(new BasicStroke(5f));
-                g2.drawRoundRect(2, 2, getWidth()-5, getHeight()-5, radius, radius);
+                g2.setColor(COLOR_BORDER_SELECTED);
+                g2.setStroke(new BasicStroke(6f)); // Slightly thicker border for larger screen
+                g2.drawRoundRect(3, 3, getWidth()-6, getHeight()-6, radius, radius);
             }
             // Draw lighter border on Hover
             else if (isEnabled() && isHovered) {
                 g2.setColor(new Color(255, 255, 255, 200));
-                g2.setStroke(new BasicStroke(2f));
+                g2.setStroke(new BasicStroke(3f));
                 g2.drawRoundRect(1, 1, getWidth()-3, getHeight()-3, radius, radius);
             }
             super.paintComponent(g2);
