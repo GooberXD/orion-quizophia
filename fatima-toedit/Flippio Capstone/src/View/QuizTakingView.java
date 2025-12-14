@@ -75,8 +75,8 @@ public class QuizTakingView extends JFrame {
         circlesContainer.setBackground(COLOR_BG_OUTER);
 
         // Initialize 10 circles (max capacity)
-        questionCircles = new JButton[10];
-        for (int i = 0; i < 10; i++) {
+        questionCircles = new JButton[20];
+        for (int i = 0; i < 20; i++) {
             questionCircles[i] = createCircleButton(String.valueOf(i + 1));
             questionCircles[i].setActionCommand(String.valueOf(i));
             circlesContainer.add(questionCircles[i]);
@@ -147,7 +147,7 @@ public class QuizTakingView extends JFrame {
     // =================================================================
 
     public void setupQuestionNavigator(int totalQuestions) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             questionCircles[i].setText(String.valueOf(i + 1));
             if (i < totalQuestions) {
                 questionCircles[i].setVisible(true);
@@ -207,7 +207,7 @@ public class QuizTakingView extends JFrame {
     }
 
     public void setQuestionStatus(int questionIndex, int status) {
-        if (questionIndex >= 0 && questionIndex < 10) {
+        if (questionIndex >= 0 && questionIndex < 20) {
             Color c = COLOR_CIRCLE_DEFAULT;
             if (status == 1) c = COLOR_CIRCLE_GREEN;
             if (questionCircles[questionIndex].isEnabled()) {
