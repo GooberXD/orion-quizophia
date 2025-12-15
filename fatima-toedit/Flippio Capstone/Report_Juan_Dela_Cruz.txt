@@ -1,9 +1,0 @@
-FLIPPIO STUDENT REPORT
-----------------------
-Student: Juan Dela Cruz
-ID: 1234
-Average Score: 1.00
-----------------------
-Quiz History:
-Quiz 1: 1.0
-Quiz 2: 1.0
