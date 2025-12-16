@@ -27,6 +27,7 @@
 #### Flip your luck, flip those questions — FLIPPIO.
 
 
-![logo](https://github.com/GooberXD/orion-flippio/blob/main/fatima-toedit/Flippio%20Capstone/Resources/HD-IEDWHITE.png)
+![logo](https://github.com/GooberXD/orion-flippio/blob/main/gitRsrc/HD-IEDWHITE.png)
+
 
 
