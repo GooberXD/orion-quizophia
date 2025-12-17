@@ -647,8 +647,7 @@ public class TeacherDashboardController {
     }
 
     private void updateSubjectEnrollmentCount() {
-        // No longer needed - enrollment counts are automatically maintained in teacher_<teacherId>.csv
-        // by TeacherSubjectFileManager when students are added/removed
+        
     }
 
     @SuppressWarnings("unchecked")
