@@ -1,1 +1,3 @@
 Resources used for the readme
+
+Folder also contains concept / prototypes.
