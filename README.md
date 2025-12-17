@@ -28,6 +28,13 @@
 5. **File Management**: The program stores student data, quiz questions, scores, and rankings. It consists of creating, reading, updating, and deleting data. It also includes reading and writing operations with appropriate error handling.
 6. **Design**: The user interface uses a simple and clear layout, influenced by educational platforms.
 
+### Design Pattern Features:
+
+For this program, the project features the **Singleton Design Pattern**, which handles authentication and user management.
+*   **Consistency**: It prevents multiple instances from reloading user data and maintains program consistency between students and teachers.
+*   **Accessibility**: It simplifies access across Controller and View classes.
+*   **Efficiency**: It demonstrates good design principles, resource efficiency, and real-world application of patterns.
+
 <br>
 
 <div align="center">
@@ -35,4 +42,3 @@
 #### *Flip your luck, flip those questions — FLIPPIO.*
 
 </div>
-
