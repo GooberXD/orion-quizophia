@@ -1,0 +1,10 @@
+FLIPPIO STUDENT REPORT
+----------------------
+Student: jacy
+ID: 2010-40080
+Average Performance: 50.00%
+Subject Filter: CSIT227
+----------------------
+Quiz History:
+- Quiz: Exam | Score: 2.0 / 2 | Status: PASS
+- Quiz: Capstone Presentation | Score: 0.0 / 1 | Status: INC

@@ -1,0 +1,13 @@
+QUIZ|Capstone Presentation
+META|9999|CSIT227|true
+Q|Pila ang i grades ni Sir ? (Manifesting 5.0) ;)|5.0|4.0|3.0|1.0|0
+END_QUIZ
+QUIZ|Pretest
+META|9999|SDG031|true
+Q|asdasda|1|2|3|4|0
+END_QUIZ
+QUIZ|Exam
+META|9999|CSIT227|true
+Q|OOP principle responsible for hiding data.|Encapsulation|Abstraction|Polymorphism|Inheritance|0
+Q|What design pattern is responsible for decoupling interface from implementation?|Builder|Bridge|Prototype|Facade|1
+END_QUIZ

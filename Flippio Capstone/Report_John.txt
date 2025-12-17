@@ -1,0 +1,10 @@
+FLIPPIO STUDENT REPORT
+----------------------
+Student: John
+ID: 0000
+Average Performance: 50.00%
+Subject Filter: CSIT227
+----------------------
+Quiz History:
+- Quiz: Capstone Presentation | Score: 0.0 / 1 | Status: INC
+- Quiz: Exam | Score: 2.0 / 2 | Status: PASS

@@ -1,0 +1,10 @@
+FLIPPIO STUDENT REPORT
+----------------------
+Student: Chris
+ID: 0105
+Average Performance: 100.00%
+Subject Filter: CSIT227
+----------------------
+Quiz History:
+- Quiz: Exam | Score: 2.0 / 2 | Status: PASS
+- Quiz: Capstone Presentation | Score: 1.0 / 1 | Status: PASS
