@@ -1,12 +1,18 @@
-### **FLIPPIO– A fun and interactive quiz platform for students and teachers alike.**
+<div align="center">
 
+<img src="https://github.com/GooberXD/orion-flippio/raw/main/gitRsrc/HD-IEDWHITE.png" alt="Flippio Logo" width="400">
 
+# FLIPPIO– A fun and interactive quiz platform for students and teachers alike.
+
+</div>
+
+<br>
 
 ***Flippio*** is a quiz program designed to make learning engaging, interactive, and organized in one platform. The program supports role-based access to ensure proper distinction between students and teachers.
 
+---
 
-
-###### **Program Features:**
+### Program Features:
 
 1. **Multiple Choice Questions**: Each question allows up to four choices and is displayed on a separate page to ensure focus and clarity.
 2. **Navigation System**: Students can move forward or backward between the questions and access marked questions through dedicated navigation buttons.
@@ -22,12 +28,11 @@
 5. **File Management**: The program stores student data, quiz questions, scores, and rankings. It consists of creating, reading, updating, and deleting data. It also includes reading and writing operations with appropriate error handling.
 6. **Design**: The user interface uses a simple and clear layout, influenced by educational platforms.
 
+<br>
 
+<div align="center">
 
-#### Flip your luck, flip those questions — FLIPPIO.
+#### *Flip your luck, flip those questions — FLIPPIO.*
 
-
-![logo](https://github.com/GooberXD/orion-flippio/blob/main/gitRsrc/HD-IEDWHITE.png)
-
-
+</div>
 
